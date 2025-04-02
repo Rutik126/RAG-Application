@@ -72,9 +72,9 @@ def main():
                 responses[name] = "No documents found."
                 continue
 
-            st.write(f"Found {len(docs)} documents in {name} vector store.")
+            # st.write(f"Found {len(docs)} documents in {name} vector store.")
             snippets = " ".join([doc.page_content for doc in docs])
-            st.write(f"Document snippets: {snippets}")
+            # st.write(f"Document snippets: {snippets}")
 
             # Generate a response from the Groq language model
             prompt = f"Given the following document snippets, provide a detailed and relevant response to the query: '{query}'.\n\nDocument Snippets:\n{snippets}"
@@ -94,7 +94,7 @@ def main():
             responses[name] = response_content
 
         # Display responses from different embedding models
-        st.subheader("Responses from Different Embeddings:")
+        st.subheader("Responses from Given Data:")
         for name, response in responses.items():
             st.write(f"**{name}**:")
             st.write(response)
